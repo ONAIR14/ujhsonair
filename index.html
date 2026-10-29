@@ -723,6 +723,12 @@ body:not([data-vw=home]) .credit{display:none}
  #study>.readout .ro:last-child{border-right:0}
  .blks{grid-template-columns:1fr;gap:30px}
 }
+
+/* ── 넓은 화면에서 상단 줄 가운데 정렬 ── */
+@media(min-width:961px){
+  .appnav{display:flex;width:fit-content;margin-left:auto;margin-right:auto}
+  #backbar{justify-content:center}
+}
 </style>
 
 <div class="wrap">
