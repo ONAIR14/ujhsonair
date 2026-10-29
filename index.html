@@ -248,8 +248,13 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--hair);
 button.act{background:none;border:1px solid var(--hair);color:var(--dim);font:inherit;
   font-size:12.5px;padding:9px 15px;border-radius:2px;cursor:pointer;min-height:40px}
 button.act:hover{border-color:var(--amb);color:var(--amb)}
-#dump{display:none;width:100%;margin-top:12px}
-#dump textarea{min-height:180px;font-family:var(--mono);font-size:12px}
+.fbtn{flex-wrap:wrap}
+button.act.ok{border-color:var(--amb);color:var(--amb)}
+.fnote{flex:1 1 100%;margin:6px 0 0;font-size:11.5px;color:var(--faint);line-height:1.55}
+#dump{display:none;width:100%;margin-top:12px;margin-bottom:40px;scroll-margin-top:14px}
+#dump textarea{min-height:180px;width:100%;box-sizing:border-box;
+  font-family:var(--mono);font-size:12px}
+.dnote{margin:0 0 8px;font-size:12.5px;color:var(--amb);line-height:1.55}
 
 /* ── 개선 ──────────────────────────── */
 #improve{display:none}
@@ -748,8 +753,9 @@ body:not([data-vw=home]) .credit{display:none}
     <p>조사 화면에서 체크하거나 적은 내용은 자동으로 저장됩니다. 다만 그 컴퓨터의 그 브라우저에만 남습니다.</p>
     <ul class="gul"><li>다른 기기에서 열면 빈 상태로 보입니다.</li><li>파일을 다른 사람에게 보내도 기록은 따라가지 않습니다.</li>
       <li>브라우저 기록을 지우면 같이 지워집니다. 학교 공용 컴퓨터라면 특히 주의하세요.</li></ul>
-    <p>그래서 조사를 한 바퀴 돌고 나면 조사 화면 맨 아래 <b>기록 내보내기</b>를 누르고, 나온 내용을 복사해 따로 보관하세요. 그게 백업이자 다음 버전을 만드는 재료가 됩니다.</p>
-    <p>옆의 <b>기록 지우기</b>는 지금까지 적은 것을 전부 없앱니다. 실수를 막을려고 두 번 눌러야 지워지지만, 되돌릴 수는 없습니다.</p></section>
+    <p>그래서 조사를 한 바퀴 돌고 나면 조사 화면 맨 아래 <b>파일로 저장</b>을 누르세요. <code>ujhsonair-record-2026-10-29.json</code>처럼 그날 날짜가 붙은 파일이 내려받아집니다. 날짜가 달라지면 이름도 달라지니 전에 받은 것을 덮어쓰지 않습니다. 그게 백업이자 다음 버전을 만드는 재료가 됩니다.</p>
+    <p>옆의 <b>복사하기</b>는 같은 내용을 글자 그대로 복사해 둡니다. 채팅이나 메모장에 바로 붙여넣어 보낼 때 쓰면 편합니다.</p>
+    <p>맨 끝의 <b>기록 지우기</b>는 지금까지 적은 것을 전부 없앱니다. 실수를 막으려고 두 번 눌러야 지워지지만, 되돌릴 수는 없습니다.</p></section>
   <section class="gsec gwarn" id="g7"><h3>꼭 지킬 것</h3>
     <div class="gw"><b>실측은 학교 전체에 소리가 나가는 작업입니다.</b> 시작 전에 반드시 담당 선생님께 알리고, 수업이 없는 시간에만 하세요. 두 명이 전화를 연결해 두고 한 명은 방송실에, 한 명은 학교를 돕니다.</div>
     <div class="gw"><b>비상방송 설비는 건드리지 마세요.</b> LMC-100, DNE-1100, LFR-100은 법으로 정해진 소방 설비입니다. 화재 때 사람 목숨이 걸린 장비라 학생이 임의로 조작하면 안 됩니다. 셀렉터의 GEN/EM 전환도 마찬가지입니다.</div>
@@ -821,10 +827,12 @@ body:not([data-vw=home]) .credit{display:none}
   <footer>
     <span id="saved"></span>
     <span class="fbtn">
-      <button class="act" id="btnexp">기록 내보내기</button>
+      <button class="act" id="btnsave">파일로 저장</button>
+      <button class="act" id="btncopy">복사하기</button>
       <button class="act" id="btnreset">기록 지우기</button>
     </span>
-    <div id="dump"><textarea id="dumptext" readonly></textarea></div>
+    <p class="fnote">저장한 파일 이름은 <code>ujhsonair-record-날짜.json</code> 입니다. 아이폰은 &lsquo;파일&rsquo; 앱의 다운로드 폴더, 안드로이드는 다운로드 폴더에 들어갑니다.</p>
+    <div id="dump"><p class="dnote">저장과 복사가 막혀 있어 내용을 직접 띄웠습니다. 아래 칸을 길게 눌러 전체 선택한 뒤 복사하세요.</p><textarea id="dumptext" readonly></textarea></div>
   </footer>
   <p class="credit">made by 14기 엔지니어 허원준</p>
 </div>
@@ -1717,7 +1725,7 @@ document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>goTo(()=>{
 document.getElementById('vt').onclick=()=>{forceList=!forceList;render();};
 let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(isDia())render();},160);});
 
-document.getElementById('btnexp').onclick=()=>{
+function expText(){
   const o={장비:{},실측:{},개선:{}};
   for(const k in D)o.장비[SYS[k]]=D[k].n.map(n=>
     ({장비:n.t,확인:n.ok?'예':'아니오',메모:memo[k+'.'+n.i]||''}));
@@ -1728,9 +1736,42 @@ document.getElementById('btnexp').onclick=()=>{
         결과:p.r==='ok'?'라벨 맞음':p.r==='none'?'소리 없음':'다름',실제:p.v||''};});
     if(rows.length)o.실측[z.u]=rows;});
   FIX.forEach(f=>{o.개선[f.t]=ST[fixst[f.id]||'todo'];});
+  return JSON.stringify(o,null,1);
+}
+function expName(){
+  const d=new Date(),z=v=>String(v).padStart(2,'0');
+  return 'ujhsonair-record-'+d.getFullYear()+'-'+z(d.getMonth()+1)+'-'+z(d.getDate())+'.json';
+}
+function flash(b,msg,ms){
+  if(!b._orig)b._orig=b.textContent;
+  clearTimeout(b._t); b.textContent=msg; b.classList.add('ok');
+  b._t=setTimeout(()=>{b.textContent=b._orig;b.classList.remove('ok');},ms||2200);
+}
+function showDump(txt){
   const d=document.getElementById('dump');
-  d.style.display=d.style.display==='block'?'none':'block';
-  document.getElementById('dumptext').value=JSON.stringify(o,null,1);
+  document.getElementById('dumptext').value=txt;
+  d.style.display='block';
+  try{d.scrollIntoView({behavior:'smooth',block:'start'});}catch(e){d.scrollIntoView();}
+}
+document.getElementById('btnsave').onclick=function(){
+  const txt=expText();
+  try{
+    const bl=new Blob([txt],{type:'application/json;charset=utf-8'});
+    const u=URL.createObjectURL(bl),a=document.createElement('a');
+    a.href=u; a.download=expName(); a.style.display='none';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(()=>{try{URL.revokeObjectURL(u);}catch(e){}},4000);
+    flash(this,'저장됨');
+  }catch(e){ showDump(txt); flash(this,'저장 안 됨',3500); }
+};
+document.getElementById('btncopy').onclick=function(){
+  const txt=expText(),b=this;
+  const fail=()=>{showDump(txt);flash(b,'복사 안 됨',3500);};
+  try{
+    if(navigator.clipboard&&navigator.clipboard.writeText)
+      navigator.clipboard.writeText(txt).then(()=>flash(b,'복사됨'),fail);
+    else fail();
+  }catch(e){fail();}
 };
 document.getElementById('btnreset').onclick=function(){
   if(!armed){armed=true;this.textContent='한 번 더 누르면 삭제';
