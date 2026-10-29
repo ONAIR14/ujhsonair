@@ -727,7 +727,8 @@ body:not([data-vw=home]) .credit{display:none}
 /* ── 넓은 화면에서 상단 줄 가운데 정렬 ── */
 @media(min-width:961px){
   .appnav{display:flex;width:fit-content;margin-left:auto;margin-right:auto}
-  #backbar{justify-content:center}
+  .appnav #bk{color:var(--faint);margin-right:2px}
+  .appnav #bk:hover{color:var(--amb)}
 }
 </style>
 
@@ -747,14 +748,12 @@ body:not([data-vw=home]) .credit{display:none}
   </header>
 
   <nav class="appnav" role="tablist">
+    <button id="bk" style="display:none"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg>뒤로</button>
     <button data-vw="home" aria-current="page"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l7-6 7 6v8a1 1 0 0 1-1 1h-4v-5H8v5H4a1 1 0 0 1-1-1z"/></svg>홈</button>
     <button data-vw="find" aria-current="false"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M12.6 12.6L17.5 17.5"/></svg>찾기</button>
     <button data-vw="study" aria-current="false"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5.5h14M3 10h14M3 14.5h14"/><circle cx="7" cy="5.5" r="1.8"/><circle cx="13" cy="10" r="1.8"/><circle cx="6" cy="14.5" r="1.8"/></svg>조사</button>
     <button data-vw="guide" aria-current="false"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 9v5M10 6.2v.1"/></svg>도움말</button>
   </nav>
-
-  <div class="backbar" id="backbar"><button id="bk">
-    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg>뒤로</button></div>
 
   <div id="home"></div>
   <div id="find"></div>
@@ -1292,7 +1291,7 @@ window.addEventListener('popstate',()=>{
 function nav(){
   ['home','find','study','guide'].forEach(v=>
     document.getElementById(v).style.display=view===v?'block':'none');
-  const bb=document.getElementById('backbar');
+  const bb=document.getElementById('bk');
   bb.style.display=(hist.length&&view!=='home')?'flex':'none';
   const st=view==='study';
   document.querySelector('.readout').style.display=st?'grid':'none';
