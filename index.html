@@ -256,6 +256,43 @@ button.act.ok{border-color:var(--amb);color:var(--amb)}
   font-family:var(--mono);font-size:12px}
 .dnote{margin:0 0 8px;font-size:12.5px;color:var(--amb);line-height:1.55}
 
+/* ── 담기(여러 구역) ──────────────── */
+.lkn2{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 12px}
+.lkn2 span{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--faint)}
+.lkn2 button{flex:0 0 auto;white-space:nowrap;background:var(--panel2);border:1px solid var(--hair);
+  color:var(--dim);font:inherit;font-size:12px;padding:8px 13px;border-radius:2px;
+  cursor:pointer;min-height:36px}
+.lkn2 button:hover{border-color:var(--amb);color:var(--amb)}
+button.lkr{position:relative;width:100%;font:inherit;color:inherit;cursor:pointer;
+  text-align:center;-webkit-appearance:none;appearance:none}
+button.lkr:hover{border-color:var(--amb)}
+.lkr.inc{border-color:var(--amb);box-shadow:inset 0 0 0 1px var(--amb)}
+.lkr.inc::after{content:'✓';position:absolute;top:7px;right:9px;font-size:13px;
+  font-weight:700;color:var(--amb);line-height:1}
+.cart{background:var(--panel);border:1px solid var(--amb);border-radius:3px;padding:14px 15px;margin:14px 0 18px}
+.carth{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.carth b{font-size:15px;font-weight:500}
+.carth button{background:none;border:0;color:var(--faint);font:inherit;font-size:12.5px;
+  padding:6px 0;cursor:pointer;text-decoration:underline}
+.carth button:hover{color:var(--red)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+.chip{display:inline-flex;align-items:center;gap:7px;background:var(--panel2);
+  border:1px solid var(--hair);color:var(--dim);font:inherit;font-size:12.5px;
+  padding:7px 11px;border-radius:2px;cursor:pointer;min-height:34px}
+.chip i{font-style:normal;color:var(--faint)}
+.chip:hover{border-color:var(--red);color:var(--red)}
+.cartl{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--faint);
+  margin:17px 0 9px;padding-top:14px;border-top:1px solid var(--hair)}
+.csg{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--panel2);
+  border:1px solid var(--hair);border-radius:2px;padding:11px 13px;margin-bottom:8px}
+.csu{flex:1;min-width:118px;font-size:14px}
+.csu span{display:block;font-family:var(--mono);font-size:9.5px;color:var(--faint);
+  letter-spacing:.1em;margin-top:3px}
+.csch{display:flex;flex-wrap:wrap;gap:9px}
+.csc{font-family:var(--mono);font-size:21px;font-weight:500;color:var(--amb);
+  letter-spacing:-.02em;line-height:1}
+.cartw{margin:11px 0 0;font-size:12px;color:var(--faint);line-height:1.6}
+
 /* ── 개선 ──────────────────────────── */
 #improve{display:none}
 .fxg{margin-bottom:30px}
@@ -753,7 +790,7 @@ body:not([data-vw=home]) .credit{display:none}
     <p>조사 화면에서 체크하거나 적은 내용은 자동으로 저장됩니다. 다만 그 컴퓨터의 그 브라우저에만 남습니다.</p>
     <ul class="gul"><li>다른 기기에서 열면 빈 상태로 보입니다.</li><li>파일을 다른 사람에게 보내도 기록은 따라가지 않습니다.</li>
       <li>브라우저 기록을 지우면 같이 지워집니다. 학교 공용 컴퓨터라면 특히 주의하세요.</li></ul>
-    <p>그래서 조사를 한 바퀴 돌고 나면 조사 화면 맨 아래 <b>파일로 저장</b>을 누르세요. <code>ujhsonair-record-2026-10-29.json</code>처럼 그날 날짜가 붙은 파일이 내려받아집니다. 날짜가 달라지면 이름도 달라지니 전에 받은 것을 덮어쓰지 않습니다. 그게 백업이자 다음 버전을 만드는 재료가 됩니다.</p>
+    <p>그래서 조사를 한 바퀴 돌고 나면 조사 화면 맨 아래 <b>파일로 저장</b>을 누르세요. <code>ujhsonair-record-2026-10-29.html</code>처럼 그날 날짜가 붙은 파일이 내려받아집니다. 폰에서 탭하면 표로 정리된 보고서가 바로 열리고, 카톡으로 보내도 받은 사람이 눌러서 볼 수 있습니다. 날짜가 달라지면 이름도 달라지니 전에 받은 것을 덮어쓰지 않습니다. 그게 백업이자 다음 버전을 만드는 재료가 됩니다.</p>
     <p>옆의 <b>복사하기</b>는 같은 내용을 글자 그대로 복사해 둡니다. 채팅이나 메모장에 바로 붙여넣어 보낼 때 쓰면 편합니다.</p>
     <p>맨 끝의 <b>기록 지우기</b>는 지금까지 적은 것을 전부 없앱니다. 실수를 막으려고 두 번 눌러야 지워지지만, 되돌릴 수는 없습니다.</p></section>
   <section class="gsec gwarn" id="g7"><h3>꼭 지킬 것</h3>
@@ -831,7 +868,7 @@ body:not([data-vw=home]) .credit{display:none}
       <button class="act" id="btncopy">복사하기</button>
       <button class="act" id="btnreset">기록 지우기</button>
     </span>
-    <p class="fnote">저장한 파일 이름은 <code>ujhsonair-record-날짜.json</code> 입니다. 아이폰은 &lsquo;파일&rsquo; 앱의 다운로드 폴더, 안드로이드는 다운로드 폴더에 들어갑니다.</p>
+    <p class="fnote">저장한 파일(<code>ujhsonair-record-날짜.html</code>)은 탭하면 표로 정리돼 열립니다. 아이폰은 &lsquo;파일&rsquo; 앱의 다운로드 폴더, 안드로이드는 다운로드 폴더에 들어갑니다.</p>
     <div id="dump"><p class="dnote">저장과 복사가 막혀 있어 내용을 직접 띄웠습니다. 아래 칸을 길게 눌러 전체 선택한 뒤 복사하세요.</p><textarea id="dumptext" readonly></textarea></div>
   </footer>
   <p class="credit">made by 14기 엔지니어 허원준</p>
@@ -1178,6 +1215,7 @@ function findZone(){
    <div class="lkq big"><input id="lki" placeholder="반 번호나 방 이름" value="${esc(lq[0]==='@'?'':lq)}">
      <button id="lkx">지우기</button></div>
    <div class="lkquick">${ZONE.map((z,i)=>`<button data-q="@${i}">${esc(z.c)}</button>`).join('')}</div>
+   <div id="lkcart"></div>
    <div id="lkout"></div>`;
   const i=document.getElementById('lki');
   let t;i.oninput=()=>{lq=i.value;clearTimeout(t);t=setTimeout(lkResults,180);};
@@ -1185,6 +1223,7 @@ function findZone(){
   document.getElementById('lkx').onclick=()=>{lq='';i.value='';lkResults();i.focus();};
   document.querySelectorAll('#fbody .lkquick button').forEach(b=>b.onclick=()=>{
     lq=b.dataset.q;i.value='';lkResults();});
+  cartView();
   lkResults();
 }
 function findDev(){
@@ -1581,6 +1620,39 @@ function lkNorm(q){
   if(m)return m[1];
   return s;
 }
+let cart=[];
+const ckey=(zi,ch)=>zi+'|'+ch;
+const cnum=c=>parseInt(c,10)||0;
+function cartHas(zi,ch){return cart.indexOf(ckey(zi,ch))>=0;}
+function cartToggle(zi,ch){
+  const k=ckey(zi,ch),i=cart.indexOf(k);
+  if(i>=0)cart.splice(i,1); else cart.push(k);
+  cartView(); lkResults();
+}
+function cartView(){
+  const box=document.getElementById('lkcart');
+  if(!box)return;
+  if(!cart.length){box.innerHTML='';return;}
+  const by={};
+  cart.forEach(k=>{const q=k.split('|');(by[q[0]]=by[q[0]]||[]).push(q[1]);});
+  box.innerHTML=`<div class="cart">
+     <div class="carth"><b>담은 구역 ${cart.length}개</b><button id="cartclr">비우기</button></div>
+     <div class="chips">${cart.map(k=>{
+       const q=k.split('|'),row=ZONE[q[0]].r.find(r=>r[0]===q[1])||[];
+       const nm=(row[1]&&row[1]!=='?')?row[1]:(row[2]||q[1]);
+       return `<button class="chip" data-rm="${esc(k)}">${esc(nm)}<i>×</i></button>`;}).join('')}</div>
+     <div class="cartl">눌러야 할 버튼</div>
+     ${Object.keys(by).sort((a,b)=>a-b).map(zi=>`<div class="csg">
+        <div class="csu">${esc(ZONE[zi].u)}<span>${esc(ZONE[zi].c)}</span></div>
+        <div class="csch">${by[zi].slice().sort((a,b)=>cnum(a)-cnum(b))
+          .map(ch=>`<span class="csc">${esc(ch)}</span>`).join('')}</div></div>`).join('')}
+     <p class="cartw">랙에서 각 셀렉터를 찾아 위 번호를 모두 누르면 담은 곳 전체에 나갑니다.
+        전교 방송은 각 셀렉터의 ALL 버튼을 씁니다.</p></div>`;
+  document.getElementById('cartclr').onclick=()=>{cart=[];cartView();lkResults();};
+  box.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{
+    const i=cart.indexOf(b.dataset.rm); if(i>=0)cart.splice(i,1);
+    cartView(); lkResults();});
+}
 function lkHits(){
   const q=lq.trim();
   if(!q)return null;
@@ -1604,20 +1676,29 @@ function lkResults(){
     반 번호, 방 이름, 시험실 번호로 적어보세요.
     아직 라벨을 못 읽은 칸은 검색되지 않습니다.</div>`;return;}
   const byU={};h.forEach(o=>{(byU[o.zi]=byU[o.zi]||[]).push(o.r);});
-  box.innerHTML=`<div class="lkn">${h.length}개 구역 · 눌러야 할 버튼입니다</div>`+
+  const every=h.every(o=>cartHas(o.zi,o.r[0]));
+  box.innerHTML=`<div class="lkn2"><span>${h.length}개 구역 · 칸을 누르면 담깁니다</span>
+     <button id="lkall">${every?'전부 빼기':'전부 담기'}</button></div>`+
    Object.entries(byU).map(([zi,rs])=>`<div class="lkg">
      <div class="lkgh">${esc(ZONE[zi].u)}<span>${esc(ZONE[zi].c)}</span></div>
      <div class="lkl">${rs.map(([ch,nm,ex])=>{
-       const p=probe[zi+'.'+ch],unk=nm==='?'||nm==='';
-       return `<div class="lkr${p?' ok':''}">
+       const p=probe[zi+'.'+ch],unk=nm==='?'||nm==='',on=cartHas(zi,ch);
+       return `<button type="button" class="lkr${p?' ok':''}${on?' inc':''}"
+           data-zi="${zi}" data-ch="${esc(ch)}" aria-pressed="${on}">
          <span class="plabel${unk?' none':''}"><i><b>${unk?'—':esc(nm)}</b>
            ${ex&&ex!=='?'?`<em>${esc(ex)}</em>`:''}</i></span>
          <span class="lkc">${esc(ch)}</span>
          <span class="lkv">${p?(p.r==='ok'?'실측 확인됨':p.r==='none'?'소리 없었음':'실제 '+esc(p.v||'다름')):'라벨 기준'}</span>
-       </div>`;}).join('')}</div></div>`).join('')+
-   `<div class="lkwarn">여러 구역을 한꺼번에 보낼 때는 각 셀렉터에서 해당 채널을 모두 누릅니다.
-     전교 방송은 각 셀렉터의 ALL 버튼을 씁니다. 실측으로 검증되지 않은 항목은 라벨 기준이라
+       </button>`;}).join('')}</div></div>`).join('')+
+   `<div class="lkwarn">실측으로 검증되지 않은 항목은 종이 라벨을 옮겨 적은 것이라
      실제와 다를 수 있습니다.</div>`;
+  box.querySelectorAll('button.lkr').forEach(b=>b.onclick=()=>cartToggle(+b.dataset.zi,b.dataset.ch));
+  const la=document.getElementById('lkall');
+  if(la)la.onclick=()=>{
+    const all=h.every(o=>cartHas(o.zi,o.r[0]));
+    h.forEach(o=>{const k=ckey(o.zi,o.r[0]),i=cart.indexOf(k);
+      if(all){if(i>=0)cart.splice(i,1);} else if(i<0)cart.push(k);});
+    cartView(); lkResults();};
 }
 
 /* ══ 문제 · 할 일 · 상태 ══════════════════════════════ */
@@ -1740,7 +1821,72 @@ function expText(){
 }
 function expName(){
   const d=new Date(),z=v=>String(v).padStart(2,'0');
-  return 'ujhsonair-record-'+d.getFullYear()+'-'+z(d.getMonth()+1)+'-'+z(d.getDate())+'.json';
+  return 'ujhsonair-record-'+d.getFullYear()+'-'+z(d.getMonth()+1)+'-'+z(d.getDate())+'.html';
+}
+function expHtml(){
+  const json=expText(),o=JSON.parse(json);
+  const E=v=>String(v==null?'':v).replace(/[&<>"]/g,c=>
+    ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const d=new Date();
+  const when=d.getFullYear()+'년 '+(d.getMonth()+1)+'월 '+d.getDate()+'일 '+
+    d.toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'});
+  let tn=0,tc=0; for(const k in D)D[k].n.forEach(x=>{tn++;if(x.ok)tc++;});
+  let tz=0; ZONE.forEach((x,i)=>x.r.forEach(r=>{if(probe[i+'.'+r[0]])tz++;}));
+  const fd=FIX.filter(f=>(fixst[f.id]||'todo')==='done').length;
+  const dev=Object.keys(o.장비).map(sys=>'<h3>'+E(sys)+'</h3>'+
+    '<table><thead><tr><th>장비</th><th>확인</th><th>메모</th></tr></thead><tbody>'+
+    o.장비[sys].map(r=>'<tr><td>'+E(r.장비)+'</td><td class="'+(r.확인==='예'?'y':'n')+'">'+
+      E(r.확인)+'</td><td>'+(E(r.메모)||'<span class=e>—</span>')+'</td></tr>').join('')+
+    '</tbody></table>').join('');
+  const zk=Object.keys(o.실측);
+  const zone=zk.length?zk.map(u=>'<h3>'+E(u)+'</h3>'+
+    '<table><thead><tr><th>채널</th><th>라벨</th><th>결과</th><th>실제</th></tr></thead><tbody>'+
+    o.실측[u].map(r=>'<tr><td class="ch">'+E(r.채널)+'</td><td>'+E(r.라벨)+'</td><td class="'+
+      (r.결과==='라벨 맞음'?'y':'n')+'">'+E(r.결과)+'</td><td>'+
+      (E(r.실제)||'<span class=e>—</span>')+'</td></tr>').join('')+
+    '</tbody></table>').join(''):
+    '<p class="none">아직 실측한 구역이 없습니다. 109개 구역 중 확인된 곳이 없습니다.</p>';
+  const fix='<table><thead><tr><th>항목</th><th>상태</th></tr></thead><tbody>'+
+    Object.keys(o.개선).map(t=>'<tr><td>'+E(t)+'</td><td class="'+
+      (o.개선[t]==='완료'?'y':o.개선[t]==='진행 중'?'m':'n')+'">'+E(o.개선[t])+
+      '</td></tr>').join('')+'</tbody></table>';
+  return '<!doctype html><html lang="ko"><head><meta charset="utf-8">'+
+'<meta name="viewport" content="width=device-width,initial-scale=1">'+
+'<title>운정고 방송 조사 기록 '+E(when)+'</title><style>'+
+'*{box-sizing:border-box}'+
+'body{margin:0;padding:24px 18px 60px;background:#fff;color:#1a1d21;line-height:1.6;'+
+'font-family:system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;-webkit-text-size-adjust:100%}'+
+'h1{margin:0;font-size:22px;letter-spacing:-.02em}'+
+'.when{margin:6px 0 22px;font-size:13px;color:#6b7076}'+
+'.sum{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}'+
+'.sum>div{flex:1 1 96px;border:1px solid #e1e4e8;border-radius:6px;padding:13px 14px}'+
+'.sum b{display:block;font-size:24px;font-weight:600;letter-spacing:-.02em}'+
+'.sum i{font-style:normal;font-size:14px;font-weight:400;color:#9aa0a6}'+
+'.sum span{display:block;font-size:12px;color:#6b7076;margin-top:3px}'+
+'h2{margin:32px 0 4px;font-size:17px;padding-bottom:7px;border-bottom:2px solid #1a1d21}'+
+'h3{margin:20px 0 7px;font-size:14px;color:#3d4248}'+
+'table{width:100%;border-collapse:collapse;font-size:13px}'+
+'th{text-align:left;font-weight:600;font-size:11px;color:#6b7076;padding:7px 8px;'+
+'border-bottom:1px solid #d7dbe0;white-space:nowrap}'+
+'td{padding:8px;border-bottom:1px solid #eef0f2;vertical-align:top}'+
+'td.ch{font-family:ui-monospace,Menlo,monospace;font-weight:600;white-space:nowrap}'+
+'td.y{color:#1a7f4b;font-weight:600}td.m{color:#9a6b00;font-weight:600}td.n{color:#9aa0a6}'+
+'.e{color:#c3c8cd}'+
+'.none{font-size:13px;color:#6b7076;background:#f6f7f8;border-radius:6px;padding:15px}'+
+'.foot{margin-top:38px;padding-top:14px;border-top:1px solid #e1e4e8;'+
+'font-size:11.5px;color:#9aa0a6;line-height:1.7}'+
+'@media print{body{padding:0}.sum>div{break-inside:avoid}}'+
+'</style></head><body>'+
+'<h1>운정고 방송 조사 기록</h1><p class="when">'+E(when)+'에 내보냈습니다</p>'+
+'<div class="sum">'+
+'<div><b>'+tc+'<i>/'+tn+'</i></b><span>장비 확인</span></div>'+
+'<div><b>'+tz+'<i>/109</i></b><span>구역 실측</span></div>'+
+'<div><b>'+fd+'<i>/'+FIX.length+'</i></b><span>개선 완료</span></div></div>'+
+'<h2>장비</h2>'+dev+'<h2>구역 실측</h2>'+zone+'<h2>개선</h2>'+fix+
+'<p class="foot">운정고 방송 안내 사이트에서 내보낸 기록입니다 · onair14.github.io/ujhsonair<br>'+
+'아래 숨겨진 데이터는 이 기록을 그대로 되살릴 때 쓰는 원본입니다. 지우지 마세요.</p>'+
+'<script type="application/json" id="ujhsonair-data">'+json.replace(/</g,'\\u003c')+'<\/script>'+
+'</body></html>';
 }
 function flash(b,msg,ms){
   if(!b._orig)b._orig=b.textContent;
@@ -1754,15 +1900,14 @@ function showDump(txt){
   try{d.scrollIntoView({behavior:'smooth',block:'start'});}catch(e){d.scrollIntoView();}
 }
 document.getElementById('btnsave').onclick=function(){
-  const txt=expText();
   try{
-    const bl=new Blob([txt],{type:'application/json;charset=utf-8'});
+    const bl=new Blob([expHtml()],{type:'text/html;charset=utf-8'});
     const u=URL.createObjectURL(bl),a=document.createElement('a');
     a.href=u; a.download=expName(); a.style.display='none';
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(()=>{try{URL.revokeObjectURL(u);}catch(e){}},4000);
     flash(this,'저장됨');
-  }catch(e){ showDump(txt); flash(this,'저장 안 됨',3500); }
+  }catch(e){ showDump(expText()); flash(this,'저장 안 됨',3500); }
 };
 document.getElementById('btncopy').onclick=function(){
   const txt=expText(),b=this;
