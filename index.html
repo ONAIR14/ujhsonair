@@ -288,9 +288,11 @@ button.lkr:hover{border-color:var(--amb)}
 .csu{flex:1;min-width:118px;font-size:14px}
 .csu span{display:block;font-family:var(--mono);font-size:9.5px;color:var(--faint);
   letter-spacing:.1em;margin-top:3px}
-.csch{display:flex;flex-wrap:wrap;gap:9px}
+.csch{display:flex;flex-wrap:wrap;gap:9px;margin-left:auto;justify-content:flex-end}
 .csc{font-family:var(--mono);font-size:22px;font-weight:800;color:var(--amb);
   letter-spacing:-.02em;line-height:1}
+.csc.all{letter-spacing:.04em}
+.chip.whole{border-color:var(--amb);color:var(--amb)}
 .cartw{margin:11px 0 0;font-size:12px;color:var(--faint);line-height:1.6}
 
 /* ── 개선 ──────────────────────────── */
@@ -1654,22 +1656,34 @@ function cartView(){
   if(!cart.length){box.innerHTML='';return;}
   const by={};
   cart.forEach(k=>{const q=k.split('|');(by[q[0]]=by[q[0]]||[]).push(q[1]);});
+  const zis=Object.keys(by).sort((a,b)=>a-b);
+  const whole=zi=>by[zi].length===ZONE[zi].r.length;
+  const sorted=zi=>by[zi].slice().sort((a,b)=>cnum(a)-cnum(b));
+  const chips=[];
+  zis.forEach(zi=>{
+    if(whole(zi))
+      chips.push(`<button class="chip whole" data-rmz="${esc(zi)}">${esc(ZONE[zi].c)} 전체<i>\u00d7</i></button>`);
+    else sorted(zi).forEach(ch=>{
+      const row=ZONE[zi].r.find(r=>r[0]===ch)||[];
+      const nm=(row[1]&&row[1]!=='?')?row[1]:(row[2]||ch);
+      chips.push(`<button class="chip" data-rm="${esc(ckey(zi,ch))}">${esc(nm)}<i>\u00d7</i></button>`);});
+  });
   box.innerHTML=`<div class="cart">
      <div class="carth"><b>담은 구역 ${cart.length}개</b><button id="cartclr">비우기</button></div>
-     <div class="chips">${cart.map(k=>{
-       const q=k.split('|'),row=ZONE[q[0]].r.find(r=>r[0]===q[1])||[];
-       const nm=(row[1]&&row[1]!=='?')?row[1]:(row[2]||q[1]);
-       return `<button class="chip" data-rm="${esc(k)}">${esc(nm)}<i>×</i></button>`;}).join('')}</div>
+     <div class="chips">${chips.join('')}</div>
      <div class="cartl">눌러야 할 버튼</div>
-     ${Object.keys(by).sort((a,b)=>a-b).map(zi=>`<div class="csg">
+     ${zis.map(zi=>`<div class="csg">
         <div class="csu">${esc(ZONE[zi].u)}<span>${esc(ZONE[zi].c)}</span></div>
-        <div class="csch">${by[zi].slice().sort((a,b)=>cnum(a)-cnum(b))
-          .map(ch=>`<span class="csc">${esc(ch)}</span>`).join('')}</div></div>`).join('')}
+        <div class="csch">${whole(zi)?'<span class="csc all">ALL</span>'
+          :sorted(zi).map(ch=>`<span class="csc">${esc(ch)}</span>`).join('')}</div></div>`).join('')}
      <p class="cartw">랙에서 각 셀렉터를 찾아 위 번호를 모두 누르면 담은 곳 전체에 나갑니다.
-        전교 방송은 각 셀렉터의 ALL 버튼을 씁니다.</p></div>`;
+        <b>ALL</b>이라고 나오면 번호 대신 그 셀렉터의 ALL 버튼 하나만 누르면 됩니다.</p></div>`;
   document.getElementById('cartclr').onclick=()=>{cart=[];cartView();lkResults();};
-  box.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{
+  box.querySelectorAll('.chip[data-rm]').forEach(b=>b.onclick=()=>{
     const i=cart.indexOf(b.dataset.rm); if(i>=0)cart.splice(i,1);
+    cartView(); lkResults();});
+  box.querySelectorAll('.chip[data-rmz]').forEach(b=>b.onclick=()=>{
+    const z=b.dataset.rmz; cart=cart.filter(k=>k.split('|')[0]!==z);
     cartView(); lkResults();});
 }
 function lkHits(){
