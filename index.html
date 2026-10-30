@@ -727,7 +727,7 @@ body:not([data-vw=home]) .credit{display:none}
 /* ── 뒤로 버튼: 메뉴 알약 왼쪽에 따로 ── */
 .navrow{display:flex;align-items:center;gap:10px;margin-top:18px}
 .navrow .appnav{margin-top:0}
-#bk{display:none;align-items:center;gap:7px;background:#fff;border:0;border-radius:999px;
+#bk{display:flex;align-items:center;gap:7px;background:#fff;border:0;border-radius:999px;
   box-shadow:var(--sh);color:var(--dim);font:inherit;font-weight:600;font-size:14.5px;
   padding:0 20px;min-height:56px;cursor:pointer;flex:0 0 auto}
 #bk:hover{color:var(--amb)}
@@ -739,7 +739,9 @@ body:not([data-vw=home]) .credit{display:none}
 
 /* ── 넓은 화면에서 상단 줄 가운데 정렬 ── */
 @media(min-width:961px){
-  .navrow{justify-content:center}
+  /* 좌우에 같은 폭을 두어 메뉴 알약이 항상 정확히 가운데 오게 */
+  .navrow{display:grid;grid-template-columns:1fr auto 1fr}
+  .navrow #bk{justify-self:end}
 }
 </style>
 
@@ -759,7 +761,7 @@ body:not([data-vw=home]) .credit{display:none}
   </header>
 
   <div class="navrow">
-    <button id="bk" style="display:none"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg>뒤로</button>
+    <button id="bk" style="visibility:hidden"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg>뒤로</button>
     <nav class="appnav" role="tablist">
     <button data-vw="home" aria-current="page"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l7-6 7 6v8a1 1 0 0 1-1 1h-4v-5H8v5H4a1 1 0 0 1-1-1z"/></svg>홈</button>
     <button data-vw="find" aria-current="false"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M12.6 12.6L17.5 17.5"/></svg>찾기</button>
@@ -1305,14 +1307,13 @@ function nav(){
   ['home','find','study','guide'].forEach(v=>
     document.getElementById(v).style.display=view===v?'block':'none');
   const bb=document.getElementById('bk');
-  bb.style.display=(hist.length&&view!=='home')?'flex':'none';
+  bb.style.visibility=(hist.length&&view!=='home')?'visible':'hidden';
   const st=view==='study';
   document.querySelector('.readout').style.display=st?'grid':'none';
   document.querySelector('footer').style.display=st?'flex':'none';
   document.querySelectorAll('.appnav button').forEach(b=>
     b.setAttribute('aria-current',b.dataset.vw===view?'page':'false'));
   document.body.dataset.vw=view;
-  document.getElementById('ttl').textContent=view==='home'?'운정고 방송 안내 사이트':'운정고 방송 안내';
   if(view==='home')homeView();
   else if(view==='find')findView();
   else render();
