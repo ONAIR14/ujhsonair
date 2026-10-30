@@ -296,7 +296,28 @@ button.lkr:hover{border-color:var(--amb)}
 .cartw{margin:11px 0 0;font-size:12px;color:var(--faint);line-height:1.6}
 
 /* ── 개선 ──────────────────────────── */
-#improve{display:none}
+#blank,#improve{display:none}
+.bkprog{height:6px;background:var(--panel2);border-radius:999px;overflow:hidden;margin:14px 0 6px}
+.bkprog i{display:block;height:100%;background:var(--amb);border-radius:999px}
+.bkn{margin:0 0 20px;font-size:12.5px;color:var(--faint)}
+.bkg{background:var(--panel);border:1px solid var(--hair);border-radius:3px;
+  margin-bottom:12px;overflow:hidden}
+.bkgh{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  padding:12px 15px;background:var(--panel2);border-bottom:1px solid var(--hair);font-size:15px}
+.bkgh span{font-size:11px;color:var(--faint)}
+.bkr{display:flex;align-items:center;gap:10px;padding:10px 15px;border-bottom:1px solid var(--hair)}
+.bkr:last-child{border-bottom:0}
+.bkr.on{background:var(--okbg,transparent)}
+.bkc{flex:0 0 52px;font-family:var(--mono);font-size:15px;font-weight:800;color:var(--amb)}
+.bki{flex:1;min-width:0;background:var(--rack);border:1px solid var(--hair);color:var(--ink);
+  border-radius:2px;padding:10px 12px;font-family:var(--sans);font-size:15px;min-height:44px}
+.bki:focus{outline:none;border-color:var(--amb)}
+.bkr.on .bki{border-color:var(--led)}
+.bkx{flex:0 0 auto;white-space:nowrap;background:none;border:1px solid var(--hair);
+  color:var(--faint);font:inherit;font-size:12px;padding:9px 12px;border-radius:2px;
+  cursor:pointer;min-height:40px}
+.bkx:hover{border-color:var(--red);color:var(--red)}
+.bkw{margin:16px 0 0;font-size:12.5px;color:var(--faint);line-height:1.7}
 .fxg{margin-bottom:30px}
 .fxg h3{display:flex;align-items:center;gap:11px;font-size:16px;font-weight:500;margin:0 0 3px}
 .fxg h3 span{font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.1em}
@@ -812,8 +833,8 @@ body:not([data-vw=home]) .credit{display:none}
     <p class="gnote">랙 순서와 높이는 사진을 보고 옮긴 것이라 대략적입니다. 실물과 다르면 방송부에 알려 고쳐주세요.</p>
     <button class="ggo" data-gv="dev">장비 찾기 열기</button></section>
   <section class="gsec" id="g5"><h3>조사 화면</h3>
-    <p>방송부가 방송실을 조사해 기록하는 곳입니다. 평소 방송만 하는 사람은 안 열어도 됩니다. 탭 일곱 개로 나뉩니다.</p>
-    <div class="gtb"><table><thead><tr><th>탭</th><th>내용</th></tr></thead><tbody><tr><td>음성</td><td>소리가 마이크에서 스피커까지 가는 길. 장비를 누르면 그 다음 경로가 켜집니다</td></tr><tr><td>영상</td><td>노트북과 카메라가 교실 TV까지 가는 길</td></tr><tr><td>비상</td><td>화재 신호가 전 구역 스피커로 가는 길</td></tr><tr><td>랙 배치</td><td>실제 랙에 쌓인 순서</td></tr><tr><td>구역표</td><td>셀렉터 채널과 구역의 전체 대응표</td></tr><tr><td>실측</td><td>채널을 하나씩 눌러 실제 구역을 확인하는 작업 화면</td></tr><tr><td>개선</td><td>찾아낸 문제와 해야 할 일 목록</td></tr></tbody></table></div>
+    <p>방송부가 방송실을 조사해 기록하는 곳입니다. 평소 방송만 하는 사람은 안 열어도 됩니다. 탭 여덟 개로 나뉩니다.</p>
+    <div class="gtb"><table><thead><tr><th>탭</th><th>내용</th></tr></thead><tbody><tr><td>음성</td><td>소리가 마이크에서 스피커까지 가는 길. 장비를 누르면 그 다음 경로가 켜집니다</td></tr><tr><td>영상</td><td>노트북과 카메라가 교실 TV까지 가는 길</td></tr><tr><td>비상</td><td>화재 신호가 전 구역 스피커로 가는 길</td></tr><tr><td>랙 배치</td><td>실제 랙에 쌓인 순서</td></tr><tr><td>구역표</td><td>셀렉터 채널과 구역의 전체 대응표</td></tr><tr><td>빈칸</td><td>라벨을 못 읽은 24칸. 방송실에서 확인한 내용을 적어 넣으면 바로 검색에 걸립니다</td></tr><tr><td>실측</td><td>채널을 하나씩 눌러 실제 구역을 확인하는 작업 화면</td></tr><tr><td>개선</td><td>찾아낸 문제와 해야 할 일 목록</td></tr></tbody></table></div>
     <p>계통도는 휴대폰에서 좌우로 밀어 봅니다. 전체를 한눈에 보려면 아래 목록으로 보기로 바꾸면 됩니다. 장비를 확인했으면 상세 칸에서 체크하고 메모를 적어 둘 수 있습니다.</p></section>
   <section class="gsec" id="g6"><h3>저장과 백업</h3>
     <p>조사 화면에서 체크하거나 적은 내용은 자동으로 저장됩니다. 다만 그 컴퓨터의 그 브라우저에만 남습니다.</p>
@@ -847,6 +868,7 @@ body:not([data-vw=home]) .credit{display:none}
       <i class="tsep"></i>
       <button class="tab" role="tab" data-v="rack" aria-selected="false">랙 배치</button>
       <button class="tab" role="tab" data-v="zone" aria-selected="false">구역표</button>
+      <button class="tab" role="tab" data-v="blank" aria-selected="false">빈칸</button>
       <button class="tab" role="tab" data-v="probe" aria-selected="false">실측</button>
       <i class="tsep"></i>
       <button class="tab" role="tab" data-v="improve" aria-selected="false">개선</button>
@@ -871,6 +893,7 @@ body:not([data-vw=home]) .credit{display:none}
 
   <div id="rack"></div>
   <div id="zone"></div>
+  <div id="blank"></div>
   <div id="probe"></div>
   <div id="improve"></div>
 
@@ -1344,6 +1367,13 @@ let cur='audio', sel=null, openP=-1, canSave=true, armed=false, forceList=false;
 const memo={}, probe={};
 let pu=null, pi=0, openF=null, lq='';
 const fixst={};
+/* 라벨을 못 읽은 칸. BLANKS 는 처음 상태로 고정되고, blanks 에 채운 값이 쌓입니다. */
+const blanks={}, BLANKS=[];
+ZONE.forEach((z,zi)=>z.r.forEach(r=>{if(!r[1]||r[1]==='?')BLANKS.push({zi,ch:r[0]});}));
+function applyBlanks(){
+  BLANKS.forEach(o=>{const v=blanks[o.zi+'.'+o.ch];
+    if(v){const row=ZONE[o.zi].r.find(r=>r[0]===o.ch); if(row)row[1]=v;}});
+}
 
 const mk=(n,a={})=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);return e;};
 const nd=i=>D[cur].n.find(o=>o.i===i);
@@ -1791,7 +1821,7 @@ function save(){
   if(!canSave)return;
   try{
     const st={};for(const k in D)D[k].n.forEach(n=>st[k+'.'+n.i]=n.ok?1:0);
-    localStorage.setItem(KEY,JSON.stringify({st,memo,probe,fixst}));
+    localStorage.setItem(KEY,JSON.stringify({st,memo,probe,fixst,blanks}));
     say('저장됨 · '+new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'}));
   }catch(e){canSave=false;say(NOSTORE,1);}
 }
@@ -1803,8 +1833,47 @@ function load(){
     for(const k in D)D[k].n.forEach(n=>{if(o.st&&o.st[k+'.'+n.i]!==undefined)n.ok=o.st[k+'.'+n.i];});
     Object.assign(memo,o.memo||{});Object.assign(probe,o.probe||{});
     Object.assign(fixst,o.fixst||{});
+    Object.assign(blanks,o.blanks||{}); applyBlanks();
     say('저장된 기록을 불러왔습니다');
   }catch(e){canSave=false;say(NOSTORE,1);}
+}
+
+/* ══ 빈칸 채우기 ══════════════════════════════════════ */
+function blankView(){
+  const done=BLANKS.filter(o=>blanks[o.zi+'.'+o.ch]).length;
+  const by={};
+  BLANKS.forEach(o=>{(by[o.zi]=by[o.zi]||[]).push(o);});
+  const box=document.getElementById('blank');
+  box.innerHTML=`<div class="rnote">랙의 종이 라벨이 흐리거나 손글씨로 덮여 읽어내지 못한 칸
+     <b>${BLANKS.length}개</b>입니다. ${done?`그중 <b>${done}개</b>를 채웠습니다.`:'아직 채운 것이 없습니다.'}
+     방송실에 가서 이 칸들만 확인하고 적어 넣으면 됩니다. 적으면 바로 검색에도 걸립니다.</div>
+   <div class="bkprog"><i style="width:${BLANKS.length?done/BLANKS.length*100:0}%"></i></div>
+   <p class="bkn">${done} / ${BLANKS.length} 채움</p>`+
+   Object.keys(by).sort((a,b)=>a-b).map(zi=>`<div class="bkg">
+     <div class="bkgh">${esc(ZONE[zi].u)}<span>${esc(ZONE[zi].c)} · ${by[zi].length}칸</span></div>
+     ${by[zi].map(o=>{const k=o.zi+'.'+o.ch,v=blanks[k]||'';
+       return `<div class="bkr${v?' on':''}">
+         <span class="bkc">${esc(o.ch)}</span>
+         <input class="bki" data-k="${esc(k)}" value="${esc(v)}"
+           placeholder="여기에 무엇이 나오는지" autocomplete="off">
+         ${v?`<button class="bkx" data-k="${esc(k)}">지우기</button>`:''}
+       </div>`;}).join('')}</div>`).join('')+
+   `<p class="bkw">확실하지 않으면 비워 두세요. 잘못 적으면 그 칸을 믿고 방송했다가 엉뚱한 곳으로 나갑니다.
+      실제로 눌러서 확인한 것은 <b>실측</b> 탭에 따로 기록하세요.</p>`;
+  box.querySelectorAll('.bki').forEach(i=>{
+    const commit=()=>{const k=i.dataset.k,v=i.value.trim();
+      if(v)blanks[k]=v; else delete blanks[k];
+      const q=k.split('.'),row=ZONE[q[0]].r.find(r=>r[0]===q[1]);
+      if(row)row[1]=v||'?';
+      save();blankView();stats();};
+    i.onchange=commit;
+    i.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();commit();}};
+  });
+  box.querySelectorAll('.bkx').forEach(b=>b.onclick=()=>{
+    const k=b.dataset.k; delete blanks[k];
+    const q=k.split('.'),row=ZONE[q[0]].r.find(r=>r[0]===q[1]);
+    if(row)row[1]='?';
+    save();blankView();stats();});
 }
 
 /* ══ 전환 ═════════════════════════════════════════════ */
@@ -1819,6 +1888,7 @@ function render(){
   document.getElementById('rack').style.display=cur==='rack'?'block':'none';
   document.getElementById('zone').style.display=cur==='zone'?'block':'none';
   document.getElementById('probe').style.display=cur==='probe'?'block':'none';
+  document.getElementById('blank').style.display=cur==='blank'?'block':'none';
   document.getElementById('improve').style.display=cur==='improve'?'block':'none';
   if(dia){
     const narrow=window.matchMedia('(max-width:960px)').matches;
@@ -1833,6 +1903,7 @@ function render(){
   }
   else if(cur==='rack')rackView();
   else if(cur==='zone')zone();
+  else if(cur==='blank')blankView();
   else if(cur==='improve')improveView();
   else probeView();
   probs();todo();stats();
